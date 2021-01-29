@@ -1,8 +1,34 @@
-﻿<?xml version="1.0" ?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Application Title="XAFDemo">
   <Options>
     <LayoutManagerOptions RequiredFieldMark="*" />
   </Options>
+  <SchemaModules>
+    <SchemaModule Name="SchedulerModuleBase" Version="19.1.6.0" IsNewNode="True" />
+    <SchemaModule Name="SystemModule" Version="19.1.6.0" IsNewNode="True" />
+  </SchemaModules>
   <Views>
+    <DetailView Id="CompanyContact_DetailView">
+      <Layout>
+        <LayoutGroup Id="Main" RelativeSize="100">
+          <LayoutGroup Id="SimpleEditors" RelativeSize="100">
+            <LayoutGroup Id="CompanyContact" RelativeSize="100" Direction="Horizontal">
+              <LayoutGroup Id="Auto829b8530-2a6d-40e9-adb6-83f207a8075d" ShowCaption="False" Caption="" Index="0" RelativeSize="49.927641099855279" IsNewNode="True">
+                <LayoutItem Id="FirstName" ViewItem="FirstName" Index="0" RelativeSize="6.1895551257253381" IsNewNode="True" />
+                <LayoutItem Id="PhoneNumber" ViewItem="PhoneNumber" Index="1" RelativeSize="93.810444874274665" IsNewNode="True" />
+              </LayoutGroup>
+              <LayoutGroup Id="Auto76d16d60-bf50-4461-9471-05fa4f5b3433" ShowCaption="False" Caption="" Index="1" RelativeSize="50.072358900144721" IsNewNode="True">
+                <LayoutItem Id="LastName" ViewItem="LastName" Index="0" RelativeSize="6.1895551257253381" IsNewNode="True" />
+                <LayoutItem Id="Email" ViewItem="Email" Index="1" RelativeSize="93.810444874274665" IsNewNode="True" />
+              </LayoutGroup>
+              <LayoutItem Id="PhoneNumber" Index="1" RelativeSize="4.6421663442940035" Removed="True" />
+              <LayoutItem Id="Email" Index="2" RelativeSize="89.168278529980654" Removed="True" />
+              <LayoutItem Id="FirstName" Removed="True" />
+              <LayoutItem Id="LastName" Removed="True" />
+            </LayoutGroup>
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
   </Views>
 </Application>
