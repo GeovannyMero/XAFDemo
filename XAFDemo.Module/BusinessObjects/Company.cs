@@ -28,6 +28,8 @@ namespace XAFDemo.Module.BusinessObjects
             // Place your initialization code here (https://documentation.devexpress.com/eXpressAppFramework/CustomDocument112834.aspx).
         }
         private string _Name;
+        [RuleRequiredField]
+        [RuleUniqueValue]
         public string Name
         {
             get { return _Name; }
@@ -56,6 +58,24 @@ namespace XAFDemo.Module.BusinessObjects
             set { SetPropertyValue<string>(nameof(BillingAddress), ref _BillingAddress, value); }
 
         }
+
+        private string _ShippingAddress;
+        public string ShippingAddress
+        {
+            get { return _ShippingAddress; }
+            set { SetPropertyValue<string>(nameof(ShippingAddress), ref _ShippingAddress, value); }
+
+        }
+
+        private bool _ShippingToBilling;
+        [ImmediatePostData]
+        public bool ShippingToBilling
+        {
+            get { return _ShippingToBilling; }
+            set { SetPropertyValue<bool>(nameof(ShippingToBilling), ref _ShippingToBilling, value); }
+
+        }
+
         private bool _IsActive;
         public bool IsActive
         {

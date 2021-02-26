@@ -11,10 +11,14 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
+using DevExpress.ExpressApp.ConditionalAppearance;
 
 namespace XAFDemo.Module.BusinessObjects
 {
     [DefaultClassOptions]
+    [ImageName("BO_Lead")]
+    [DefaultProperty("FullName")]
+    [Appearance("ActiveContact", Criteria = "Active = true", TargetItems = "*", FontStyle = System.Drawing.FontStyle.Bold)]
     //[ImageName("BO_Contact")]
     //[DefaultProperty("DisplayMemberNameForLookupEditorsOfThisType")]
     //[DefaultListViewOptions(MasterDetailMode.ListViewOnly, false, NewItemRowPosition.None)]
@@ -30,6 +34,7 @@ namespace XAFDemo.Module.BusinessObjects
         {
             base.AfterConstruction();
             // Place your initialization code here (https://documentation.devexpress.com/eXpressAppFramework/CustomDocument112834.aspx).
+            Active = true;
         }
         private string _FirstName;
         public string FirstName
@@ -44,6 +49,16 @@ namespace XAFDemo.Module.BusinessObjects
             get { return _FirstName; }
             set { SetPropertyValue<string>(nameof(LastName), ref _LastName, value); }
 
+        }
+
+        [VisibleInDetailView(false)]
+        [VisibleInListView(false)]
+        public string FullName
+        {
+            get
+            {
+                return ObjectFormatter.Format("{FirstName} {LastName}", this, EmptyEntriesMode.RemoveDelimeterWhenEntryIsEmpty);
+            }
         }
         private string _PhoneNumber;
         public string PhoneNumber
@@ -66,6 +81,14 @@ namespace XAFDemo.Module.BusinessObjects
         {
             get { return _Company; }
             set { SetPropertyValue<Company>(nameof(Company), ref _Company, value); }
+        }
+
+        private bool _Active;
+        [ImmediatePostData]
+        public bool Active
+        {
+            get => _Active;
+            set => SetPropertyValue<bool>(nameof(Active), ref _Active, value);
         }
 
         //}

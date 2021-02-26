@@ -1,5 +1,21 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Application Title="XAFDemo">
+  <BOModel>
+    <Class Name="XAFDemo.Module.BusinessObjects.Company">
+      <AppearanceRules>
+        <AppearanceRule Id="ShippingAddressRule" Criteria="[ShippingToBilling] = True" Visibility="Hide" TargetItems="ShippingAddress" IsNewNode="True" />
+      </AppearanceRules>
+    </Class>
+  </BOModel>
+  <NavigationItems>
+    <Items>
+      <Item Id="Default">
+        <Items>
+          <Item Id="Event_ListView" Removed="True" />
+        </Items>
+      </Item>
+    </Items>
+  </NavigationItems>
   <Options>
     <LayoutManagerOptions RequiredFieldMark="*" />
   </Options>
@@ -26,6 +42,42 @@
               <LayoutItem Id="FirstName" Removed="True" />
               <LayoutItem Id="LastName" Removed="True" />
             </LayoutGroup>
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+    <DetailView Id="Meeting_DetailView">
+      <Layout>
+        <LayoutGroup Id="Main" RelativeSize="100">
+          <LayoutGroup Id="SimpleEditors" RelativeSize="32.108317214700193">
+            <LayoutGroup Id="Meeting" Direction="Horizontal" RelativeSize="0.60240963855421692" Caption="Meeting">
+              <LayoutItem Id="PrimaryContact" RelativeSize="100" Index="0" Removed="True" />
+              <LayoutItem Id="Company" RelativeSize="49.907918968692449" Removed="True" />
+            </LayoutGroup>
+            <LayoutGroup Id="Event" RelativeSize="99.397590361445779">
+              <LayoutGroup Id="Event_col1" RelativeSize="42.774566473988436" Caption="Event_col1" Direction="Vertical">
+                <LayoutItem Id="Company" ViewItem="Company" Index="0" RelativeSize="23.529411764705884" IsNewNode="True" />
+                <LayoutItem Id="PrimaryContact" ViewItem="PrimaryContact" Index="1" RelativeSize="17.647058823529413" IsNewNode="True" />
+                <LayoutItem Id="Subject" ViewItem="Subject" Index="2" RelativeSize="17.647058823529413" IsNewNode="True" Removed="True" />
+                <LayoutItem Id="StartOn" ViewItem="StartOn" Index="3" RelativeSize="17.647058823529413" IsNewNode="True" Removed="True" />
+                <LayoutItem Id="EndOn" ViewItem="EndOn" Index="4" RelativeSize="23.529411764705884" IsNewNode="True" Removed="True" />
+                <LayoutItem Id="AllDay" ViewItem="AllDay" Index="5" RelativeSize="20" Removed="True" />
+              </LayoutGroup>
+              <LayoutGroup Id="Event_col2" RelativeSize="57.225433526011564" Caption="Event_col2" Direction="Vertical">
+                <LayoutItem Id="AllDay" ViewItem="AllDay" Index="0" RelativeSize="23.529411764705884" IsNewNode="True" />
+                <LayoutItem Id="Location" RelativeSize="76.470588235294116" Index="1" />
+                <LayoutItem Id="RecurrencePattern" RelativeSize="80" Index="1" Removed="True" />
+                <LayoutItem Id="Status" RelativeSize="15" Index="1" Removed="True" />
+                <LayoutItem Id="Label" RelativeSize="15" Removed="True" />
+              </LayoutGroup>
+            </LayoutGroup>
+          </LayoutGroup>
+          <LayoutGroup Id="SizeableEditors" RelativeSize="37.524177949709866" Caption="SizeableEditors">
+            <LayoutItem Id="Description" RelativeSize="100" CaptionLocation="Top" />
+            <LayoutItem Id="RecurrenceInfoXml" RelativeSize="62.371134020618555" Removed="True" />
+          </LayoutGroup>
+          <LayoutGroup Id="Resources_Group" Direction="Vertical" RelativeSize="30.367504835589941">
+            <LayoutItem Id="Resources" RelativeSize="100" />
           </LayoutGroup>
         </LayoutGroup>
       </Layout>
