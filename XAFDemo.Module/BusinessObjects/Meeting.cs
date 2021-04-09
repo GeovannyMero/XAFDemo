@@ -29,6 +29,7 @@ namespace XAFDemo.Module.BusinessObjects
         }
 
         private Company _Company;
+        [ImmediatePostData]
         public Company Company
         {
             get { return _Company; }

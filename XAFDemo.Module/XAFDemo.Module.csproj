@@ -104,6 +104,12 @@
     <Compile Include="BusinessObjects\Company.cs" />
     <Compile Include="BusinessObjects\CompanyContact.cs" />
     <Compile Include="BusinessObjects\Meeting.cs" />
+    <Compile Include="Controllers\CreateMeetingFromCompanyController.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controllers\CreateMeetingFromCompanyController.Designer.cs">
+      <DependentUpon>CreateMeetingFromCompanyController.cs</DependentUpon>
+    </Compile>
     <Compile Include="DatabaseUpdate\Updater.cs" />
     <Compile Include="Module.cs">
       <SubType>Component</SubType>
@@ -114,6 +120,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Controllers\CreateMeetingFromCompanyController.resx">
+      <DependentUpon>CreateMeetingFromCompanyController.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Model.DesignedDiffs.xafml" />
     <EmbeddedResource Include="Properties\licenses.licx" />
   </ItemGroup>
